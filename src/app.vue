@@ -39,6 +39,7 @@
 <style scoped lang="scss">
     .app-container {
         padding-top: 40px;
+        padding-bottom: 50px;
         overflow-x: hidden;  // 注意：实现在页面在左右跳动时的连接
     }
 
