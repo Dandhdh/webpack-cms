@@ -7,6 +7,9 @@ import SearchContainer from './components/tabbar/Search-Container.vue'
 import ShopcarContainer from './components/tabbar/Shopcar-Container.vue'
 import NewsList from './components/news/NewsList.vue'
 import NewsInfo from './components/news/NewsInfo.vue'
+import PhotoList from './components/photos/PhotoList.vue'
+import PhotoInfo from './components/photos/PhotoInfo.vue'
+import GoodsList from './components/goods/GoodsList.vue'
 
 // 创建路由对象
 var router = new VueRouter({
@@ -18,7 +21,10 @@ var router = new VueRouter({
         {path: '/search', component: SearchContainer},
         {path: '/shopcar', component: ShopcarContainer},
         {path: '/home/newsList', component: NewsList},
-        {path: '/home/newsinfo/:id', component: NewsInfo}
+        {path: '/home/newsinfo/:id', component: NewsInfo},
+        {path: '/home/photolist', component: PhotoList},
+        {path: '/home/photoInfo/:id', component: PhotoInfo},
+        {path: '/home/goodslist', component: GoodsList}
     ],
     // 覆盖默认的路由高亮的类
     // 即使用 'mui-active' 覆盖默认的高亮的类 'router-link-active'
