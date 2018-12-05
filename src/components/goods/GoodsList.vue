@@ -1,20 +1,20 @@
 <template>
     <div class="goods-list">
 
-        <!--<div class="goods-item" v-for="item in goodslist" :key="item.id">-->
-            <!--<img :src="item.img_url" alt="">-->
-            <!--<h1 class="title">{{ item.title }}</h1>-->
-            <!--<div class="info">-->
-                <!--<p class="price">-->
-                    <!--<span class="now">¥ {{ item.sell_price }}</span>-->
-                    <!--<span class="old">¥ {{ item.market_price }}</span>-->
-                <!--</p>-->
-                <!--<p class="sell">-->
-                    <!--<span>热卖中</span>-->
-                    <!--<span>剩{{ stock_quanlity }}件</span>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
+        <router-link class="goods-item" :to="'/home/goodsinfo/'+item.id" v-for="item in goodslist" :key="item.id">
+            <img :src="item.img_url" alt="">
+            <h1 class="title">{{ item.title }}</h1>
+            <div class="info">
+                <p class="price">
+                    <span class="now">¥ {{ item.sell_price }}</span>
+                    <span class="old">¥ {{ item.market_price }}</span>
+                </p>
+                <p class="sell">
+                    <span>热卖中</span>
+                    <span>剩{{ item.stock_quanlity }}件</span>
+                </p>
+            </div>
+        </router-link>
 
         <!--
          网页中有两种跳转方式：
@@ -115,7 +115,35 @@
             }
         },
         created(){
-            this.getGoodsList()
+            this.getGoodsList();
+            // 伪造一个数据
+            if (this.goodslist.length<=0){
+                this.goodslist = [{
+                    cou:1,
+                    id:1,
+                    title:"oppo find X 玫红色 16G双网通版",
+                    sell_price:2199,
+                    market_price:2599,
+                    stock_quanlity:212,
+                    img_url:'https://img14.360buyimg.com/n0/jfs/t23167/95/285071867/94556/c98fa4f6/5b2b6212N106d8382.jpg'
+                },{
+                    cou:2,
+                    id:2,
+                    title:'Apple iPhone X (A1865) 64GB 深空灰色 移动联通电信4G手机',
+                    sell_price:5999,
+                    market_price:6399,
+                    stock_quanlity:166,
+                    img_url:'https://img14.360buyimg.com/n0/jfs/t10675/253/1344769770/66891/92d54ca4/59df2e7fN86c99a27.jpg'
+                },{
+                    cou:1,
+                    id:3,
+                    title:'华为 HUAWEI P20 AI智慧徕卡双摄全面屏游戏手机 6GB+64GB 极光色 双卡双待',
+                    sell_price:3388,
+                    market_price:4000,
+                    stock_quanlity:556,
+                    img_url:'https://img14.360buyimg.com/n0/jfs/t18052/318/2334327001/256076/23da5f45/5af13917Naca6cb3d.jpg'
+                }]
+            }
         },
         methods:{
             getGoodsList(){

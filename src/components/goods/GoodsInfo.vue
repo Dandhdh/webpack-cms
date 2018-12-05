@@ -149,6 +149,35 @@
             addToShopCar(){
                 // 添加到购物车
                 this.ballFlag = !this.ballFlag
+                // {id:商品的id，count:要购买的数量，price:商品的单价，selected：商品在购物车中是否被选中}
+                // 拼接出一个，要保存到store中car数组里的商品信息的对象
+                // var goodsinfo = {
+                //     id: this.id,
+                //     count:this.selectedCount,
+                //     price:this.goodsinfo.sell_price,
+                //     selected:true
+                // }
+
+                // 伪造一个商品数据
+                var goodsId = this.$route.params.id;
+                var goodsinfo = '';
+                if (goodsId === '1'){
+                    goodsinfo = {id: 1,count:this.selectedCount, sell_price:2199, selected:true,
+                        title:'oppo find X 玫红色 16G双网通版',
+                        thumb_path:'https://img14.360buyimg.com/n0/jfs/t23167/95/285071867/94556/c98fa4f6/5b2b6212N106d8382.jpg'};
+                }else if (goodsId == '2') {
+                    goodsinfo = {id: 2,count:this.selectedCount, sell_price:5999, selected:true,
+                        title:'Apple iPhone X (A1865) 64GB 深空灰色 移动联通电信4G手机',
+                        thumb_path:'https://img14.360buyimg.com/n0/jfs/t10675/253/1344769770/66891/92d54ca4/59df2e7fN86c99a27.jpg'};
+                }else {
+                    goodsinfo = {id: 3,count:this.selectedCount, sell_price:3388, selected:true,
+                        title:'华为 HUAWEI P20 AI智慧徕卡双摄全面屏游戏手机 6GB+64GB 极光色 双卡双待',
+                        thumb_path:'https://img14.360buyimg.com/n0/jfs/t18052/318/2334327001/256076/23da5f45/5af13917Naca6cb3d.jpg'};
+                }
+
+                // 调用 store 中的 mutations 来将商品加入购物车
+                this.$store.commit("addToCar",goodsinfo);
+
             },
             beforeEnter(el){
                 el.style.transform = "translate(0,0)"
